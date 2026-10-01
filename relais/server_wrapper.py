@@ -34,5 +34,7 @@ async def enrollment_code(request):
 
 
 if __name__ == "__main__":
+    startup_code = server.device_registry.generate_enrollment_code()
+    server.logger.info("STARTUP_ENROLLMENT_CODE=%s", startup_code)
     server.logger.info("Starting MCP Phone Use relay wrapper")
     server.mcp.run(transport="streamable-http")
